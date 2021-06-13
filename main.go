@@ -20,8 +20,9 @@ func main() {
 	runtime.MemProfileRate = 0
 	L := lua.NewState()
 	defer L.Close()
-	// Load `http` and `json` modules, `ll_json` because `json` loads that and adds some functions
+	// Load `http` and `json` modules
 	L.PreloadModule("http", gluahttp.Xloader)
+	// Loaded as `ll_json` because `json` in `EmbedLoader` loads it and adds some functions
 	L.PreloadModule("ll_json", json.Loader)
 	// Load lua code to patch `table` and `string`; found in `LadyLua/src/lua`
 	ll.PatchLoader(L, "table")
