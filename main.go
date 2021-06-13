@@ -2,7 +2,6 @@ package main
 
 import (
 	"embed"
-	"fmt"
 	"github.com/tongson/LadyLua/external/gluahttp"
 	"github.com/yuin/gopher-lua"
 	"github.com/tongson/LadyLua/external/gopher-json"
@@ -11,8 +10,11 @@ import (
 	"runtime"
 )
 
-//go:embed src/*
+//go:embed main/*
 var mainSrc embed.FS
+
+//go:embed src/*
+var luaSrc embed.FS
 
 func main() {
 	runtime.MemProfileRate = 0
@@ -22,19 +24,15 @@ func main() {
 	L.PreloadModule("ll_json", json.Loader)
 	ll.PatchLoader(L, "table")
 	ll.PatchLoader(L, "string")
-	preload := L.GetField(L.GetField(L.Get(lua.EnvironIndex), "package"), "preload")
-	L.SetField(preload, "fmt", ll.LuaLoader(L, "fmt"))
-	L.SetField(preload, "json", ll.LuaLoader(L, "json"))
-	L.SetField(preload, "argparse", ll.LuaLoader(L, "argparse"))
+	ll.EmbedLoader(L)
+	cvrf, _ := luaSrc.ReadFile("src/cvrf.lua")
+	ll.ModuleLoader(L, "cvrf", string(cvrf))
 	argtb := L.NewTable()
 	for i := 0; i < len(os.Args); i++ {
 		L.RawSet(argtb, lua.LNumber(i), lua.LString(os.Args[i]))
 	}
 	L.SetGlobal("arg", argtb)
-	src, _ := mainSrc.ReadFile("src/main.lua")
-	if err := L.DoString(string(src)); err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-	}
+	src, _ := mainSrc.ReadFile("main/main.lua")
+	ll.MainLoader(L, src)
 	os.Exit(0)
 }

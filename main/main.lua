@@ -1,4 +1,8 @@
 -- 2021-Jun-12 https://github.com/Immersive-Labs-Sec/msrc-api/ in Lua
+for x,y in pairs(package.loaders) do
+	print(x)
+	print(y)
+end
 local json = require("json")
 local http = require("http")
 local fmt = require("fmt")
@@ -7,15 +11,6 @@ local parser = argparse()
 parser:argument("id")
 local a = parser:parse(arg)
 local body
-do
-	local options = {
-		timeout = "30s",
-		headers = { Accept = "application/json" },
-	}
-	local url = ("https://api.msrc.microsoft.com/cvrf/v2.0/cvrf/%s"):format(a.id)
-	local req = http.get(url, options)
-	body = json.decode(req.body)
-end
 local exploited = 0
 local cves = {}
 local vuln_types = {
@@ -26,6 +21,8 @@ local vuln_types = {
 	["Denial of Service      "] = 0,
 	["Spoofing               "] = 0,
 }
+local cvrf = require("cvrf")
+local body = cvrf.get(a)
 for k in pairs(vuln_types) do
 	for _, t in ipairs(body.Vulnerability) do
 		local cve = t.CVE
