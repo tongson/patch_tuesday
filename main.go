@@ -25,10 +25,8 @@ func main() {
 	ll.PatchLoader(L, "table")
 	ll.PatchLoader(L, "string")
 	ll.EmbedLoader(L)
-	cvrf, _ := luaSrc.ReadFile("src/cvrf.lua")
-	ll.ModuleLoader(L, "cvrf", string(cvrf))
+	ll.ModuleLoader(L, "cvrf", ll.ReadFile(luaSrc, "src/cvrf.lua"))
 	ll.FillArg(L, os.Args)
-	src, _ := mainSrc.ReadFile("main/main.lua")
-	ll.MainLoader(L, src)
+	ll.MainLoader(L, ll.ReadFile(mainSrc, "main/main.lua"))
 	os.Exit(0)
 }
