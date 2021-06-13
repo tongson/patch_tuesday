@@ -1,4 +1,4 @@
-module patch_tuesday
+module github.com/tongson/patch_tuesday
 
 go 1.16
 
