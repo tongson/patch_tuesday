@@ -1,8 +1,4 @@
 -- 2021-Jun-12 https://github.com/Immersive-Labs-Sec/msrc-api/ in Lua
-for x,y in pairs(package.loaders) do
-	print(x)
-	print(y)
-end
 local json = require("json")
 local http = require("http")
 local fmt = require("fmt")
