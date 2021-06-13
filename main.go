@@ -27,11 +27,7 @@ func main() {
 	ll.EmbedLoader(L)
 	cvrf, _ := luaSrc.ReadFile("src/cvrf.lua")
 	ll.ModuleLoader(L, "cvrf", string(cvrf))
-	argtb := L.NewTable()
-	for i := 0; i < len(os.Args); i++ {
-		L.RawSet(argtb, lua.LNumber(i), lua.LString(os.Args[i]))
-	}
-	L.SetGlobal("arg", argtb)
+	ll.FillArg(L, os.Args)
 	src, _ := mainSrc.ReadFile("main/main.lua")
 	ll.MainLoader(L, src)
 	os.Exit(0)
