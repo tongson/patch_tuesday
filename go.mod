@@ -3,7 +3,8 @@ module patch_tuesday
 go 1.16
 
 require (
-	github.com/tongson/LadyLua v0.0.0-20210613041022-3a82257f1460
+	github.com/tongson/LadyLua v0.0.0-20210613042424-31f343ea4c19
+	github.com/tongson/gl v0.0.0-20210612034557-f2ffe6fda85c
 	github.com/yuin/gopher-lua v0.0.0-20210529063254-f4c35e4016d9
 )
 

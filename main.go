@@ -7,6 +7,7 @@ import (
 	"github.com/yuin/gopher-lua"
 	"github.com/tongson/LadyLua/external/gopher-json"
 	"github.com/tongson/LadyLua/src"
+	"github.com/tongson/gl"
 	"os"
 	"runtime"
 )
@@ -16,7 +17,7 @@ var mainSrc embed.FS
 
 func main() {
 	runtime.MemProfileRate = 0
-	defer ll.RecoverPanic()
+	defer gl.RecoverPanic()
 	L := lua.NewState()
 	defer L.Close()
 	L.PreloadModule("http", gluahttp.Xloader)
