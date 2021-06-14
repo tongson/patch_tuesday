@@ -29,7 +29,7 @@ func main() {
 	ll.ModuleLoader(L, "cvrf", ll.ReadFile(luaSrc, "src/cvrf.lua"))
 	// Capture command line arguments
 	ll.FillArg(L, os.Args)
-	// Load Lua source from `main`; the main() Lua code
+	// Load Lua source from `main`; the entrypoint Lua code or so-called main()
 	// Depends on the go:embed directive, any directory or filename works
 	ll.MainLoader(L, ll.ReadFile(mainSrc, "main/main.lua"))
 	os.Exit(0)
