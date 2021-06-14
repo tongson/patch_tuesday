@@ -22,7 +22,7 @@ func main() {
 	// Load lua code to patch `table` and `string`; found in `LadyLua/src/lua`
 	ll.PatchLoader(L, "table")
 	ll.PatchLoader(L, "string")
-	// Load all plain Lua code from LadyLua; found in `LadyLua/src/lua`
+	// Allowing loading(require) Lua code from LadyLua; found in `LadyLua/src/lua`
 	ll.EmbedLoader(L)
 	// Load Lua source from `src`; for `require("cvrf")`
 	// Depends on the go:embed directive, any directory or filename works
