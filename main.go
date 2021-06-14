@@ -25,7 +25,7 @@ func main() {
 	ll.PatchLoader(L, "table")
 	ll.PatchLoader(L, "string")
 
-	// Allowing loading(require) Lua code from LadyLua; found in `LadyLua/src/lua`
+	// Allow loading(require) Lua code from LadyLua; found in `LadyLua/src/lua`
 	ll.EmbedLoader(L)
 
 	// Load Lua source from `src`; for `require("cvrf")`
