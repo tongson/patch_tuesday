@@ -11,7 +11,7 @@ go build
 == Note
 The upstream gopher-lua is replaced for the meantime until some fixes are merged.
 
-== Sample code
+== Sample code (main.go)
 
 ----
 package main
