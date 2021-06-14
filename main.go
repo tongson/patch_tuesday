@@ -2,9 +2,7 @@ package main
 
 import (
 	"embed"
-	"github.com/tongson/LadyLua/external/gluahttp"
 	"github.com/yuin/gopher-lua"
-	"github.com/tongson/LadyLua/external/gopher-json"
 	"github.com/tongson/LadyLua/src"
 	"os"
 	"runtime"
@@ -21,9 +19,8 @@ func main() {
 	L := lua.NewState()
 	defer L.Close()
 	// Load `http` and `json` modules
-	L.PreloadModule("http", gluahttp.Xloader)
-	// Loaded as `ll_json` because `json` in `EmbedLoader` loads it and adds some functions
-	L.PreloadModule("ll_json", json.Loader)
+	ll.GoLoader(L, "http")
+	ll.GoLoader(L, "json")
 	// Load lua code to patch `table` and `string`; found in `LadyLua/src/lua`
 	ll.PatchLoader(L, "table")
 	ll.PatchLoader(L, "string")
