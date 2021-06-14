@@ -27,10 +27,12 @@ func main() {
 	// Load all plain Lua code from LadyLua; found in `LadyLua/src/lua`
 	ll.EmbedLoader(L)
 	// Load Lua source from `src`; for `require("cvrf")`
+	// Depends on the go:embed directive, any directory or filename works
 	ll.ModuleLoader(L, "cvrf", ll.ReadFile(luaSrc, "src/cvrf.lua"))
 	// Capture command line arguments
 	ll.FillArg(L, os.Args)
 	// Load Lua source from `main`; the main() Lua code
+	// Depends on the go:embed directive, any directory or filename works
 	ll.MainLoader(L, ll.ReadFile(mainSrc, "main/main.lua"))
 	os.Exit(0)
 }
