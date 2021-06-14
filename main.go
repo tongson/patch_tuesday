@@ -16,6 +16,7 @@ var luaSrc embed.FS
 func main() {
 	L := lua.NewState()
 	defer L.Close()
+
 	// See for available modules -> https://github.com/tongson/LadyLua#modules
 	// Load `http` and `json` modules
 	ll.GoLoader(L, "http")
@@ -40,5 +41,6 @@ func main() {
 	// Depends on the go:embed directive, any directory or filename works
 	ll.MainLoader(L, ll.ReadFile(mainSrc, "main/main.lua"))
 
+	// If all goes well; Lua code can call `os.exit` to override exit code
 	os.Exit(0)
 }
