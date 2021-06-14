@@ -8,6 +8,22 @@ Demo standalone Lua program by `gopher-lua+LadyLua`
 go build
 ----
 
+== Example Output
+
+----
+./patch_tuesday 2021-apr
+April 2021 Security Updates
+[+] Found 147 vulnerabilities
+    Elevation of Privilege 		19
+    Security Feature Bypass		5
+    Remote Code Execution  		56
+    Information Disclosure 		17
+    Denial of Service      		9
+    Spoofing               		2
+[+] Found 5 exploited
+    CVE-2021-28310	Win32k Elevation of Privilege Vulnerability
+----
+
 == Note
 The upstream gopher-lua is replaced for the meantime until some fixes are merged.
 
