@@ -16,6 +16,7 @@ var luaSrc embed.FS
 func main() {
 	L := lua.NewState()
 	defer L.Close()
+	// See for available modules -> https://github.com/tongson/LadyLua#modules
 	// Load `http` and `json` modules
 	ll.GoLoader(L, "http")
 	ll.GoLoader(L, "json")
