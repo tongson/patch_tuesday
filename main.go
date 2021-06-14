@@ -18,7 +18,9 @@ func main() {
 	defer L.Close()
 
 	// See for available modules -> https://github.com/tongson/LadyLua#modules
-	// Also: https://github.com/tongson/LadyLua/blob/main/docs/go-loader.adoc
+	// Also:
+	// https://github.com/tongson/LadyLua/blob/main/docs/go-loader.adoc
+	// https://github.com/tongson/LadyLua/blob/main/docs/go-helper.adoc
 
 	// Load `http` and `json` modules
 	ll.GoLoader(L, "http")
