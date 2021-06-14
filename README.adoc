@@ -1,6 +1,12 @@
 = patch_tuesday
 Demo standalone Lua program by `gopher-lua+LadyLua`
 
+== Building
+
+----
+go build
+----
+
 == Note
 The upstream gopher-lua is replaced for the meantime until some fixes are merged.
 
