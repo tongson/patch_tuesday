@@ -2,10 +2,9 @@ package main
 
 import (
 	"embed"
-	"github.com/yuin/gopher-lua"
 	"github.com/tongson/LadyLua/src"
+	"github.com/yuin/gopher-lua"
 	"os"
-	"runtime"
 )
 
 //go:embed main/*
@@ -15,7 +14,6 @@ var mainSrc embed.FS
 var luaSrc embed.FS
 
 func main() {
-	runtime.MemProfileRate = 0
 	L := lua.NewState()
 	defer L.Close()
 	// Load `http` and `json` modules
