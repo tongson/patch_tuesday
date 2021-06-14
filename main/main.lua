@@ -18,7 +18,8 @@ local vuln_types = {
 	["Spoofing               "] = 0,
 }
 local cvrf = require("cvrf")
-local body = cvrf.get(a)
+local body, err = cvrf.get(a)
+fmt.assert(body, "FAIL: %s\n", err)
 for k in pairs(vuln_types) do
 	for _, t in ipairs(body.Vulnerability) do
 		local cve = t.CVE
