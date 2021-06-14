@@ -11,7 +11,7 @@ go build
 == Example Output
 
 ----
-./patch_tuesday 2021-apr
+$ ./patch_tuesday 2021-apr
 April 2021 Security Updates
 [+] Found 147 vulnerabilities
     Elevation of Privilege 		19
