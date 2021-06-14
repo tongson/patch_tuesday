@@ -25,6 +25,7 @@ func main() {
 	// Allowing loading(require) Lua code from LadyLua; found in `LadyLua/src/lua`
 	ll.EmbedLoader(L)
 	// Load Lua source from `src`; for `require("cvrf")`
+	// Usually modules specific to a project or program
 	// Depends on the go:embed directive, any directory or filename works
 	ll.ModuleLoader(L, "cvrf", ll.ReadFile(luaSrc, "src/cvrf.lua"))
 	// Capture command line arguments
