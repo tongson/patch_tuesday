@@ -2,9 +2,10 @@ package main
 
 import (
 	"embed"
+	"os"
+
 	"github.com/tongson/LadyLua"
 	"github.com/yuin/gopher-lua"
-	"os"
 )
 
 //go:embed main/*
