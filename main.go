@@ -24,23 +24,23 @@ func main() {
 	// https://github.com/tongson/LadyLua/blob/main/docs/go-helper.adoc
 
 	// Load `http` and `json` modules
-	ll.GoLoader(L, "http")
-	ll.GoLoader(L, "json")
+	ll.PreloadGo(L, "http")
+	ll.PreloadGo(L, "json")
 
 	// Allow loading(require) Lua code from LadyLua; found in `LadyLua/internal/lua`
-	ll.EmbedLoader(L)
+	ll.PreloadEmbedded(L)
 
 	// Load Lua source from `src`; for `require("cvrf")`
 	// Usually modules specific to a project or program
 	// Depends on the go:embed directive, any directory or filename works
-	ll.ModuleLoader(L, "cvrf", ll.ReadFile(luaSrc, "src/cvrf.lua"))
+	ll.PreloadModule(L, "cvrf", ll.ReadFile(luaSrc, "src/cvrf.lua"))
 
 	// Capture command line arguments
 	ll.FillArg(L, os.Args)
 
 	// Load Lua source from `main`; the entrypoint Lua code or so-called main()
 	// Depends on the go:embed directive, any directory or filename works
-	ll.MainLoader(L, ll.ReadFile(mainSrc, "main/main.lua"))
+	ll.Main(L, ll.ReadFile(mainSrc, "main/main.lua"))
 
 	// If all goes well; Lua code can call `os.exit` to override exit code
 	os.Exit(0)
