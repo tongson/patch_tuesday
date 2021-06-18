@@ -27,10 +27,6 @@ func main() {
 	ll.GoLoader(L, "http")
 	ll.GoLoader(L, "json")
 
-	// Load lua code to patch `table` and `string`; found in `LadyLua/internal/lua`
-	ll.PatchLoader(L, "table")
-	ll.PatchLoader(L, "string")
-
 	// Allow loading(require) Lua code from LadyLua; found in `LadyLua/internal/lua`
 	ll.EmbedLoader(L)
 
