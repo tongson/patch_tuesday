@@ -1,6 +1,6 @@
 -- 2021-Jun-12 https://github.com/Immersive-Labs-Sec/msrc-api/ in Lua
-require("xstring")()
-require("xtable")()
+require("xstring")() -- "string":contains(), "string":trim_end()
+require("xtable")() -- table.size
 local json = require("json")
 local http = require("http")
 local fmt = require("fmt")
