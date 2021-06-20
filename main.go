@@ -26,9 +26,10 @@ func main() {
 	// Load `http` and `json` modules
 	ll.PreloadGo(L, "http")
 	ll.PreloadGo(L, "json")
+	ll.LoadGlobalGo(L, "extend")
 
 	// Allow loading(require) Lua code from LadyLua; found in `LadyLua/internal/lua`
-	ll.PreloadEmbedded(L)
+	ll.Preload(L)
 
 	// Load Lua source from `src`; for `require("cvrf")`
 	// Usually modules specific to a project or program
