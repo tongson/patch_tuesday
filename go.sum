@@ -265,6 +265,8 @@ github.com/tongson/LadyLua v0.0.0-20210618103155-4a6204676529 h1:iygveUQ/7n9GPfj
 github.com/tongson/LadyLua v0.0.0-20210618103155-4a6204676529/go.mod h1:A8rioYbvy4HcvtR9/D3hJC/w1RadkstBcp7JN/n3Nts=
 github.com/tongson/LadyLua v0.0.0-20210620025819-b7ebf6cb708c h1:6WSmpxGaHIENXTKbiwce4HwFjyw9YAI19xaE49q/JF0=
 github.com/tongson/LadyLua v0.0.0-20210620025819-b7ebf6cb708c/go.mod h1:A8rioYbvy4HcvtR9/D3hJC/w1RadkstBcp7JN/n3Nts=
+github.com/tongson/LadyLua v0.0.0-20210621012918-5093a5f2b735 h1:luzIpQL9cr0vL3lv6lBhqwnm42g1S12uTdgqGHQI0Mc=
+github.com/tongson/LadyLua v0.0.0-20210621012918-5093a5f2b735/go.mod h1:A8rioYbvy4HcvtR9/D3hJC/w1RadkstBcp7JN/n3Nts=
 github.com/tongson/gl v0.0.0-20210612034557-f2ffe6fda85c h1:Kxqn1XAeClmZLyfyIS7slyteXoB6yRfeLCcbIffGHU4=
 github.com/tongson/gl v0.0.0-20210612034557-f2ffe6fda85c/go.mod h1:8rZKFhk3K0aIQLgYbfDbTkg5i1htgcxtIziuaW7hEsY=
 github.com/tongson/gopher-lua v0.0.0-20210610051759-53ab9600e09f h1:ID4/mpO4tsCDjK8jg28QUvsixUYPQ3uqn91Gkl/RHwY=
